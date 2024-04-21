@@ -41,7 +41,10 @@ def create_reminder(event, user_email):
             return {"response": "failure", "message": "Invalid Date"}, 400
 
         parsed_date = parsed_date.replace(tzinfo=pytz.timezone("Asia/Kolkata"))
-        if parsed_date < datetime.datetime.now(pytz.timezone("Asia/Kolkata")):
+        if (
+            parsed_date.date()
+            < datetime.datetime.now(pytz.timezone("Asia/Kolkata")).date()
+        ):
             return {
                 "response": "failure",
                 "message": "Cannot create Reminder for past dates",

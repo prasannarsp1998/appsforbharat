@@ -1,0 +1,8 @@
+setuptools
+flask
+pytz
+mysql-connector-python
+PyJWT
+redis
+rq
+boto3
